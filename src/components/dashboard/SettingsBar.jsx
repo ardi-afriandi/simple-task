@@ -4,6 +4,7 @@ import {
   faSearch, faCircleQuestion, faGear, faGrip,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 import { SimpleTaskContext } from '../../context/SimpleTaskContext';
 
 const SettingsBar = () => {
@@ -40,9 +41,17 @@ const SettingsBar = () => {
         </a>
       </li>
       <li className="nav-item dropdown no-arrow mx-1">
-        <Link to="/" role="button" className="nav-link dropdown-toggle" title={email}>
+        <Link to="/" role="button" className="nav-link dropdown-toggle" data-tip data-for="userEmail">
           <FontAwesomeIcon icon={faGrip} color="black" size="lg" />
         </Link>
+        <ReactTooltip id="userEmail" type="dark" place="top" effect="float">
+          <span>
+            Welcome,
+            {' '}
+            {email}
+            !
+          </span>
+        </ReactTooltip>
       </li>
     </ul>
   );

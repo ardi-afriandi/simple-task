@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ReactTooltip from 'react-tooltip';
 import { SimpleTaskContext } from '../../context/SimpleTaskContext';
 
 const SidebarHeader = (props) => {
@@ -14,7 +15,7 @@ const SidebarHeader = (props) => {
         <div className="sidebar-brand-text mx-3">{props.data.title}</div>
       </a>
       <li className="nav-item active">
-        <a className="nav-link" href="#">
+        <a className="nav-link" href="#" data-tip data-for="userEmail">
           <span>
             Welcome,
             {' '}
@@ -22,6 +23,14 @@ const SidebarHeader = (props) => {
             !
           </span>
         </a>
+        <ReactTooltip id="userEmail" type="dark" place="top" effect="float">
+          <span>
+            Welcome,
+            {' '}
+            {email}
+            !
+          </span>
+        </ReactTooltip>
       </li>
     </>
   );
